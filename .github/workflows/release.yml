@@ -39,9 +39,9 @@ jobs:
 
       - name: Install tools
         run: |
-          yum install -y mysql-devel postgresql-devel freetds-devel
-          apt update
-          apt install libkrb5-dev clang
+          yum install -y mysql-devel postgresql-devel freetds-devel krb5-libs llvm-toolset
+          uname -a
+          cat /etc/*release
 
       - name: Setup project
         run: |

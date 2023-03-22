@@ -39,10 +39,12 @@ jobs:
 
       - name: Install tools
         run: |
-          yum install -y mysql-devel postgresql-devel freetds-devel krb5-libs llvm-toolset-7 devtoolset-7
+          yum install -y mysql-devel postgresql-devel freetds-devel krb5-libs llvm-toolset-7 devtoolset-7 centos-release-scl
           scl enable devtoolset-7 llvm-toolset-7 bash
           uname -a
           cat /etc/*release
+          clang --version
+          yum whatprovides *libclang.so
 
       - name: Setup project
         run: |

@@ -39,10 +39,9 @@ jobs:
 
       - name: Install tools
         run: |
-          yum install -y mysql-devel postgresql-devel freetds-devel krb5-libs llvm-toolset-7 devtoolset-7 centos-release-scl
-          scl enable llvm-toolset-7 'bash'
-          uname -a
-          cat /etc/*release
+          yum install -y mysql-devel postgresql-devel freetds-devel krb5-libs llvm-toolset-7 devtoolset-7
+          #really unsure why installing llvm doesn't work. Maybe this will
+          pip install libclang
           clang --version
 
       - name: Setup project

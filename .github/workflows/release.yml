@@ -39,7 +39,7 @@ jobs:
 
       - name: Install tools
         run: |
-          yum install -y mysql-devel postgresql-devel freetds-devel
+          yum install -y mysql-devel postgresql-devel freetds-devel krb5-libs
 
       - name: Setup project
         run: |

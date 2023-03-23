@@ -119,9 +119,9 @@ jobs:
       - uses: PyO3/maturin-action@v1
         with:
           rust-toolchain: 1.65.0
-          maturin-version: v0.12.1
+          maturin-version: v0.14.15
           command: build
-          args: -m connectorx-python/Cargo.toml -i python --no-sdist --release
+          args: -m connectorx-python/Cargo.toml -i python --release
         env:
           SQLITE3_STATIC: 1
 
@@ -133,9 +133,9 @@ jobs:
       - uses: PyO3/maturin-action@v1
         with:
           rust-toolchain: 1.65.0
-          maturin-version: v0.12.1
+          maturin-version: v0.14.15
           command: build
-          args: -m connectorx-python/Cargo.toml -i python --no-sdist --release
+          args: -m connectorx-python/Cargo.toml -i python --release
         env:
           SQLITE3_STATIC: 1
 
@@ -180,9 +180,9 @@ jobs:
       - uses: PyO3/maturin-action@v1
         with:
           rust-toolchain: 1.65.0
-          maturin-version: v0.12.1
+          maturin-version: v0.14.15
           command: build
-          args: -m connectorx-python/Cargo.toml --target aarch64-apple-darwin -i python --no-sdist --release
+          args: -m connectorx-python/Cargo.toml --target aarch64-apple-darwin -i python --release
         env:
           SQLITE3_STATIC: 1
 
@@ -194,9 +194,9 @@ jobs:
       - uses: PyO3/maturin-action@v1
         with:
           rust-toolchain: 1.65.0
-          maturin-version: v0.12.1
+          maturin-version: v0.14.15
           command: build
-          args: -m connectorx-python/Cargo.toml --target aarch64-apple-darwin -i python --no-sdist --release
+          args: -m connectorx-python/Cargo.toml --target aarch64-apple-darwin -i python --release
         env:
           SQLITE3_STATIC: 1
 

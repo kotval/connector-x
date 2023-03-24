@@ -18,11 +18,7 @@ jobs:
 
       - name: Set python version
         run: |
-          if [[ "${{ matrix.python-version[0] }}" == "37" ]]; then
-            echo "/opt/python/cp37-cp37m/bin" >> $GITHUB_PATH
-          else
-            echo "/opt/python/cp${{ matrix.python-version[0] }}-cp${{ matrix.python-version[0] }}/bin" >> $GITHUB_PATH
-          fi
+          echo "/opt/python/cp${{ matrix.python-version[0] }}-cp${{ matrix.python-version[0] }}/bin" >> $GITHUB_PATH
 
       - uses: actions-rs/toolchain@v1
         with:

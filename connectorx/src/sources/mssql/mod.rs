@@ -63,6 +63,7 @@ pub fn mssql_config(url: &Url) -> Config {
     // Using SQL Server authentication.
     #[allow(unused)]
     let params: HashMap<String, String> = url.query_pairs().into_owned().collect();
+    #[cfg(any(windows, feature = "integrated-auth-gssapi"))]
     match params.get("trusted_connection") {
         // pefer trusted_connection if set to true
         Some(v) if v == "true" => {
@@ -77,6 +78,11 @@ pub fn mssql_config(url: &Url) -> Config {
             ));
         }
     };
+    #[cfg(all(not(windows), not(feature = "integrated-auth-gssapi")))]
+    config.authentication(AuthMethod::sql_server(
+        decode(url.username())?.to_owned(),
+        decode(url.password().unwrap_or(""))?.to_owned(),
+    ));
 
     match params.get("encrypt") {
         Some(v) if v.to_lowercase() == "true" => config.encryption(EncryptionLevel::Required),
